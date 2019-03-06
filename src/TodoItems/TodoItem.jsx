@@ -2,30 +2,31 @@ import * as React from 'react';
 import { Checkbox, Button } from 'antd';
 import './todoItem.css';
 
-export class TodoItem extends React.PureComponent {
-  onChange = () => {
-    const { todoItem, onChange } = this.props;
+export const TodoItem = React.memo(({ todoItem, onChange, onDelete }) => {
+  const onChangeHandler = React.useCallback(() => {
     onChange(todoItem.id, !todoItem.done);
-  };
+  }, [todoItem, onChange]);
 
-  onDelete = () => {
-    const { todoItem, onDelete } = this.props;
+  const onDeleteHandler = React.useCallback(() => {
     onDelete(todoItem.id);
-  };
+  }, [todoItem, onDelete]);
 
-  render() {
-    const { todoItem } = this.props;
-    return (
-      <div className="todo-item">
-        <div>
-          <Checkbox checked={todoItem.done} onChange={this.onChange}>
-            {todoItem.text}
-          </Checkbox>
-        </div>
-        <div>
-          <Button htmlType="button" type="dashed" shape="circle" icon="delete" onClick={this.onDelete} />
-        </div>
+  return (
+    <div className="todo-item">
+      <div>
+        <Checkbox checked={todoItem.done} onChange={onChangeHandler}>
+          {todoItem.text}
+        </Checkbox>
       </div>
-    );
-  }
-}
+      <div>
+        <Button
+          htmlType="button"
+          type="dashed"
+          shape="circle"
+          icon="delete"
+          onClick={onDeleteHandler}
+        />
+      </div>
+    </div>
+  );
+});
