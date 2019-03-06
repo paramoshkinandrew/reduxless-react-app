@@ -1,0 +1,19 @@
+.todo-item {
+    padding: 12px;
+    border: grey solid 1px;
+    border-bottom: none;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo-item:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.todo-item:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom: grey solid 1px;
+}
