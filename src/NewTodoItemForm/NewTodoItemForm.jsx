@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   Form, Input, Button,
 } from 'antd';
-import { getNumber } from "../utils/getNumber";
-import { useTodoItems, addTodoItem } from "../hooks/useTodoItems";
+import { getNumber } from '../utils/getNumber';
+import { useTodoItems, addTodoItem } from '../hooks/useTodoItems';
 
 const NewTodoItemFormComponent = React.memo((
   { form: { getFieldValue, resetFields, getFieldDecorator } }
@@ -23,10 +23,10 @@ const NewTodoItemFormComponent = React.memo((
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Item>
-        {getFieldDecorator('text')(<Input placeholder="Todo" />)}
+        {getFieldDecorator('text')(<Input placeholder='Todo' />)}
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type='primary' htmlType='submit'>
           Add
         </Button>
       </Form.Item>

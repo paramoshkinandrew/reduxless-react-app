@@ -3,10 +3,10 @@ import {
   useTodoItems,
   setTodoItemDone,
   deleteTodoItem
-} from "../hooks/useTodoItems";
+} from '../hooks/useTodoItems';
 import { TodoItem } from './TodoItem';
 
-export const TodoItems = React.memo(() => {
+export const TodoItems = () => {
   const [todoItems, dispatch] = useTodoItems();
 
   const onChange = React.useCallback((id, done) => {
@@ -29,4 +29,4 @@ export const TodoItems = React.memo(() => {
       ))}
     </div>
   );
-});
+};

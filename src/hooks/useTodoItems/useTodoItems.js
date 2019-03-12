@@ -1,11 +1,11 @@
-import * as React from "react";
+import { useContext } from 'react';
 import {
   TodoItemsDispatchContext,
   TodoItemsStateContext
-} from "./TodoItemsProvider";
+} from './TodoItemsProvider';
 
 export const useTodoItems = () => {
-  const state = React.useContext(TodoItemsStateContext);
-  const dispatch = React.useContext(TodoItemsDispatchContext);
+  const state = useContext(TodoItemsStateContext);
+  const dispatch = useContext(TodoItemsDispatchContext);
   return [state, dispatch];
 };
